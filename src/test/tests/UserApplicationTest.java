@@ -5,11 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.common.BaseTest;
+import tests.common.ApplicationConfig;
 import user.UserApplication;
 
 
-public class UserApplicationTest extends BaseTest {
+public class UserApplicationTest extends ApplicationConfig {
 
     private UserApplication userApplication= new UserApplication();
     private final String userName = "Victor.ignat@sensidev.com";

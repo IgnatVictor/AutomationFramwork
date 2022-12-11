@@ -5,10 +5,10 @@ task1: SetUp the framework
 
 
 - In taskul 1 adaugam in source src un main package unde contine paginile si actiunile lor. Acest package se va numi actions.
-In source test refactorizare setup si tearDown intr-o clasa numit tests.common.BaseTest.
+In source test refactorizare setup si tearDown intr-o clasa numit tests.common.ApplicationConfig.
 	Add class to actions package.
 
-	tests.common.BaseTest abstracta
+	tests.common.ApplicationConfig abstracta
 	Eliminarea testelor si pageObject din baseTest.(in common)
 	WEbdriver-ul tb sa fie protected.
 	In loc de beforeTest o sa fie BeforeMethod.
