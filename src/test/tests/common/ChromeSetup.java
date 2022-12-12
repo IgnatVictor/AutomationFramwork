@@ -24,7 +24,7 @@ public abstract class ChromeSetup {
         String url = "https://accounts.google.com/";
         driver.get(url);
         driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
 
     }
 
