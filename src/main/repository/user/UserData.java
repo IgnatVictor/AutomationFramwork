@@ -1,4 +1,4 @@
-package user;
+package repository.user;
 
 public final class UserData {
 
