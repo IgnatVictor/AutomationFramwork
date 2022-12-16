@@ -1,4 +1,4 @@
-package actions.google.accountsPage;
+package actions;
 
 
 import org.openqa.selenium.By;

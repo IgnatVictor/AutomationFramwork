@@ -1,7 +1,4 @@
-package repository.user;
-
-import repository.user.UserData;
-import repository.user.UserModel;
+package repository.google.user;
 
 public class UserService {
 
