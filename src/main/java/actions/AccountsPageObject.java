@@ -7,19 +7,14 @@ import org.openqa.selenium.WebElement;
 
 public class AccountsPageObject {
 
-
-    private WebDriver driver;
-
-    private WebElement signInInputField;
+    private final WebDriver driver;
 
     public AccountsPageObject(WebDriver driver) {
         this.driver = driver;
     }
 
-
     private WebElement getSignInInputField() {
-        signInInputField = driver.findElement(By.id("identifierId"));
-        return signInInputField;
+        return driver.findElement(By.id("identifierId"));
     }
 
     public void setSignInInputField(String userName) {

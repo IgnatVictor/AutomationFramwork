@@ -1,32 +1,9 @@
 package repository.formUser;
 
-public abstract class FormUserData {
+public final class FormUserData {
 
-    private final String firstName;
-    private final String lastName;
-    private final int yearsOfExp;
-    private final String date;
+    public static final String FIRST_NAME= "Ignat";
+    public static final String LAST_NAME= "VICTOR";
+    public static final String DATE="12.06.1987";
 
-    public FormUserData(String firstName, String lastName, int yearsOfExp, String date) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.yearsOfExp = yearsOfExp;
-        this.date = date;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public int getYearsOfExp() {
-        return yearsOfExp;
-    }
-
-    public String getDate() {
-        return date;
-    }
 }
