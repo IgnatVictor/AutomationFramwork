@@ -1,11 +1,19 @@
-package actions.scenarios;
+package scenarios;
 
 import actions.FormPageObject;
 import repository.RepositoryFormApplication;
 
 public class CompleteFormScenario {
 
-    public void completeFormMultipleTimes(FormPageObject formPageObject,RepositoryFormApplication repositoryFormApplication, int numberOfTimes) {
+    private final FormPageObject formPageObject;
+    private final RepositoryFormApplication repositoryFormApplication;
+
+    public CompleteFormScenario(FormPageObject formPageObject, RepositoryFormApplication repositoryFormApplication) {
+        this.formPageObject = formPageObject;
+        this.repositoryFormApplication = repositoryFormApplication;
+    }
+
+    public void completeFormMultipleTimes(int numberOfTimes) {
         for (int i = 0; i < numberOfTimes; i++) {
             formPageObject.setFirstNameInputField(repositoryFormApplication.getFirstName(i));
             formPageObject.setLastNameInputField(repositoryFormApplication.getLastName(i));

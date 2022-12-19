@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 public class FormPageObject {
 
     private final WebDriver driver;
+
     private WebElement automationTesterBox;
     private WebElement consent;
-
     private WebElement dateInputField;
     private WebElement firstNameInputField;
     private WebElement lastNameInputField;
@@ -65,7 +65,6 @@ public class FormPageObject {
 
     private WebElement getSubmitFormButton() {
         submitFormButton = driver.findElement(By.cssSelector("button[id=submit]"));
-        ;
         return submitFormButton;
     }
 
@@ -129,5 +128,4 @@ public class FormPageObject {
     public void setYearsOfExperience(int years) {
         getYearsOfExperience(years).click();
     }
-
 }
