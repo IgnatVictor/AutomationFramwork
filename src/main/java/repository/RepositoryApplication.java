@@ -1,6 +1,6 @@
 package repository;
 
-import repository.user.UserService;
+import repository.google.user.UserService;
 
 public class RepositoryApplication {
 
@@ -9,6 +9,5 @@ public class RepositoryApplication {
     public String getUserName() {
         return userService.getUserName();
     }
-
 
 }

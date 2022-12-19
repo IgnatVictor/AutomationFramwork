@@ -1,7 +1,7 @@
 package tests;
 
 
-import actions.google.accountsPage.AccountsPageObject;
+import actions.AccountsPageObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.common.ChromeSetup;

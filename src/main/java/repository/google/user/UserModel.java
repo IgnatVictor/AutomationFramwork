@@ -1,4 +1,4 @@
-package repository.user;
+package repository.google.user;
 
 public class UserModel {
 
