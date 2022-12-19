@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import repository.RepositoryApplication;
 import repository.RepositoryFormApplication;
 
@@ -16,7 +15,6 @@ public abstract class ChromeSetup {
     protected WebDriver driver;
     protected RepositoryApplication userApplication;
     protected RepositoryFormApplication repositoryFormApplication;
-
     protected Actions actions;
 
 

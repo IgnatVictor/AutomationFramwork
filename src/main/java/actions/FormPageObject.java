@@ -7,59 +7,86 @@ import org.openqa.selenium.WebElement;
 public class FormPageObject {
 
     private final WebDriver driver;
+    private WebElement automationTesterBox;
+    private WebElement consent;
+
+    private WebElement dateInputField;
+    private WebElement firstNameInputField;
+    private WebElement lastNameInputField;
+    private WebElement maleInput;
+    private WebElement pageTitleElement;
+    private WebElement seleniumWebDriverBoxElement;
+    private WebElement submitFormButton;
+    private WebElement yearsOfExperience;
 
     public FormPageObject(WebDriver webDriver) {
         this.driver = webDriver;
     }
 
     private WebElement getAutomationTesterBox() {
-        return driver.findElement(By.cssSelector("input[id=profession-1]"));
+        automationTesterBox = driver.findElement(By.cssSelector("input[id=profession-1]"));
+        return automationTesterBox;
     }
 
     private WebElement getConsent() {
-        return driver.findElement(By.id("ez-accept-all"));
+        consent = driver.findElement(By.id("ez-accept-all"));
+        return consent;
     }
 
     private WebElement getDateInputField() {
-        return driver.findElement(By.cssSelector("input[id=datepicker]"));
+        dateInputField = driver.findElement(By.cssSelector("input[id=datepicker]"));
+        return dateInputField;
     }
 
     private WebElement getFirstNameInputField() {
-        return driver.findElement(By.cssSelector("input[name=firstname]"));
+        firstNameInputField = driver.findElement(By.cssSelector("input[name=firstname]"));
+        return firstNameInputField;
     }
 
     private WebElement getLastNameInputField() {
-        return driver.findElement(By.cssSelector("input[name=lastname]"));
+        lastNameInputField = driver.findElement(By.cssSelector("input[name=lastname]"));
+        return lastNameInputField;
     }
 
     private WebElement getMaleObject() {
-        return driver.findElement(By.cssSelector("input[id=sex-0]"));
+        maleInput = driver.findElement(By.cssSelector("input[id=sex-0]"));
+        return maleInput;
     }
 
-    public String getPageTitleText() {
-        WebElement pageTitleText = driver.findElement(By.cssSelector("h3[class*=post-title]"));
-        return pageTitleText.getText();
+    private WebElement getPageTitleElement() {
+        pageTitleElement = driver.findElement(By.cssSelector("h3[class*=post-title]"));
+        return pageTitleElement;
     }
 
     private WebElement getSeleniumWebDriverBoxElement() {
-        return driver.findElement(By.cssSelector("input[id=tool-2]"));
+        seleniumWebDriverBoxElement = driver.findElement(By.cssSelector("input[id=tool-2]"));
+        return seleniumWebDriverBoxElement;
     }
 
     private WebElement getSubmitFormButton() {
-        return driver.findElement(By.cssSelector("button[id=submit]"));
+        submitFormButton = driver.findElement(By.cssSelector("button[id=submit]"));
+        ;
+        return submitFormButton;
     }
 
     private WebElement getYearsOfExperience(int numberOfYears) {
-        return driver.findElement(By.cssSelector("input[id=exp-" + numberOfYears + "]"));
+        yearsOfExperience = driver.findElement(By.cssSelector("input[id=exp-" + numberOfYears + "]"));
+        return yearsOfExperience;
     }
 
     public void checkAutomationTesterBox() {
         getAutomationTesterBox().click();
     }
 
-    public void clearInputElements() {
+    public void clearFirstNameInputField() {
         getFirstNameInputField().clear();
+    }
+
+    public void clearLastNameInputField() {
         getLastNameInputField().clear();
+    }
+
+    public void clearDateInputField() {
         getDateInputField().clear();
     }
 
@@ -75,6 +102,10 @@ public class FormPageObject {
         getSeleniumWebDriverBoxElement().click();
     }
 
+    public String getPageTitleText() {
+        return getPageTitleElement().getText();
+    }
+
     public WebElement findSeleniumWebDriverBox() {
         return getSeleniumWebDriverBoxElement();
     }
@@ -83,9 +114,15 @@ public class FormPageObject {
         getMaleObject().click();
     }
 
-    public void setSignInInputFields(String firstName, String lastName, String date) {
+    public void setFirstNameInputField(String firstName) {
         getFirstNameInputField().sendKeys(firstName);
+    }
+
+    public void setLastNameInputField(String lastName) {
         getLastNameInputField().sendKeys(lastName);
+    }
+
+    public void setDateInputField(String date) {
         getDateInputField().sendKeys(date);
     }
 

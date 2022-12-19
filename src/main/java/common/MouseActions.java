@@ -12,8 +12,7 @@ public class MouseActions {
     }
 
     public void scrollToElement(WebElement webElement) {
-        actions.moveToElement(webElement);
-        actions.perform();
+        actions.moveToElement(webElement).perform();
     }
 
 }
