@@ -1,7 +1,7 @@
 package tests;
 
 import actions.FormPageObject;
-import actions.scenarios.CompleteFormScenario;
+import scenarios.CompleteFormScenario;
 import common.MouseActions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,16 +9,19 @@ import tests.common.ChromeSetup;
 
 public class FormApplicationTest extends ChromeSetup {
 
-    @Test(priority = 1)
-    public void fillUpForm() {
+    private final static int THREE_TIMES= 3;
+
+    @Test
+    public void checkTheTitleAfterFillingTheFormThreeTimes() {
         final MouseActions mouseActionsObject = new MouseActions(actions);
-        CompleteFormScenario completeFormScenario = new CompleteFormScenario();
         FormPageObject formPageObject = new FormPageObject(driver);
+        CompleteFormScenario completeFormScenario = new CompleteFormScenario(formPageObject,repositoryFormApplication);
+
         formPageObject.clickConsentElement();
         formPageObject.checkAutomationTesterBox();
         mouseActionsObject.scrollToElement(formPageObject.findSeleniumWebDriverBox());
         formPageObject.checkSeleniumWebDriverBox();
-        completeFormScenario.completeFormMultipleTimes(formPageObject, repositoryFormApplication,3);
+        completeFormScenario.completeFormMultipleTimes(THREE_TIMES);
 
         Assert.assertEquals(formPageObject.getPageTitleText(), repositoryFormApplication.getWebPageTitle());
     }
