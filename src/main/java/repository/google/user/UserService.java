@@ -1,7 +1,4 @@
-package repository.user;
-
-import repository.user.UserData;
-import repository.user.UserModel;
+package repository.google.user;
 
 public class UserService {
 
@@ -12,6 +9,9 @@ public class UserService {
         userModelObject = new UserModel(UserData.LOGIN_INFO);
         return userModelObject.getUser();
     }
+
+
+
 
 
 };
