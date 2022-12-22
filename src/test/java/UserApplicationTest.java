@@ -1,10 +1,7 @@
-package tests;
-
-
 import actions.AccountsPageObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.common.ChromeSetup;
+import common.ChromeSetup;
 
 
 public class UserApplicationTest extends ChromeSetup {

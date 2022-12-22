@@ -5,7 +5,7 @@
           name="C:/selenium test/automationFramework/AutomationFramwork/src/test/tests/FormApplicationTest.java">
         <parameter name="webpage"  value="https://www.techlistic.com/p/selenium-practice-form.html"/>
         <classes>
-            <class name="tests.FormApplicationTest">
+            <class name="FormApplicationTest">
                 <methods>
                     <include name="fillUpForm"/>
                 </methods>

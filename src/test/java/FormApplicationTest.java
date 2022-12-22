@@ -1,11 +1,9 @@
-package tests;
-
 import actions.FormPageObject;
 import scenarios.CompleteFormScenario;
 import common.MouseActions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.common.ChromeSetup;
+import common.ChromeSetup;
 
 public class FormApplicationTest extends ChromeSetup {
 

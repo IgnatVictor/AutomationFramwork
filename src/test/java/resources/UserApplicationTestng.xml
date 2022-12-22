@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/selenium test/automationFramework/AutomationFramwork/src/test/tests/UserApplicationTest.java">
         <parameter name="webpage"  value= "https://accounts.google.com/"/>
-        <classes><class name="tests.UserApplicationTest">
+        <classes><class name="UserApplicationTest">
             <methods>
                 <include name="checkIfTheFieldsFilledCorrectly"/>
             </methods>

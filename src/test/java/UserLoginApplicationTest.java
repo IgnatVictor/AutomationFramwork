@@ -1,8 +1,6 @@
-package tests;
-
 import actions.UserLoginFormObject;
 import org.testng.annotations.Test;
-import tests.common.ChromeSetup;
+import common.ChromeSetup;
 
 public class UserLoginApplicationTest extends ChromeSetup {
 
