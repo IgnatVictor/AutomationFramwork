@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><suite name="All Test Suite">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<suite name="All Test Suite">
+
     <listeners>
         <listener class-name="common.TestNGReport"/>
     </listeners>
-    <parameter name="date" value="Tue, 27 Dec 2022 11:13:40 GMT"/>
+    <parameter name="date" value="value1"/>
 
     <test name="WebTestCases" parallel="classes" preserve-order="true" thread-count="1" verbose="10">
 
         <classes>
-
             <class name="phpTravels.TravelPhpSubHeaderCheckTest"/>
             <class name="phpTravels.TravelPhpHeaderCheckTest"/>
             <class name="phpTravels.TravelPhpFillInputTest"/>
         </classes>
     </test>
-
 </suite>

@@ -15,4 +15,7 @@ public class MouseActions {
         actions.moveToElement(webElement).perform();
     }
 
+    public void clickOnElement(WebElement webElement) {
+        actions.moveToElement(webElement).click().perform();
+    }
 }
