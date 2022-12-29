@@ -16,7 +16,6 @@ public class AppliToolsTestTableSortName extends ChromeSetup {
         Assert.assertEquals(appliToolsObject.getTableRowsText(), applyToolsRepositoryApplication.getSortedByNameAscendingTabelRowsString());
     }
 
-
     @Test
     public void tableSortNameDescendingCheck() {
         AppliToolsObject appliToolsObject = new AppliToolsObject(driver);
@@ -24,7 +23,5 @@ public class AppliToolsTestTableSortName extends ChromeSetup {
         appliToolsObject.clickConsent();
         appliToolsObject.sortDescendingNameElements();
         Assert.assertEquals(appliToolsObject.getTableRowsText(), applyToolsRepositoryApplication.getSortedListByNameDescendingTableRowsString());
-
     }
-
 }

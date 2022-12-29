@@ -1,7 +1,6 @@
 package repository.applyTools;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class TableDataService {
 
@@ -19,7 +18,6 @@ public class TableDataService {
         tableRows[0] = new MusicModelRow(1,"Led Zeppelin IV","Led Zeppelin","Rock");
         tableRows[1] = new MusicModelRow(2,"Kind of Blue","Miles Davis","Jazz");
         tableRows[8] = new MusicModelRow(9,"Best of Blue Note","Various Artists","Jazz");
-
     }
 
     public MusicModelRow[] getTableRows() {
@@ -29,9 +27,8 @@ public class TableDataService {
         return tableRows;
     }
 
-
     @Override
     public String toString() {
-        return tableRows.toString();
+        return Arrays.toString(tableRows);
     }
 }

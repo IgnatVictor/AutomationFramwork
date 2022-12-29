@@ -2,20 +2,16 @@ package repository.applyTools;
 
 public class MusicModelRow {
 
-    private int number;
-    private String name;
-    private  String artist;
-    private String category;
+    private final int number;
+    private final String name;
+    private final String artist;
+    private final String category;
 
     public MusicModelRow(int number, String name, String artist, String category) {
         this.number = number;
         this.name = name;
         this.artist = artist;
         this.category = category;
-    }
-
-    public int getNumber() {
-        return number;
     }
 
     public String getName() {

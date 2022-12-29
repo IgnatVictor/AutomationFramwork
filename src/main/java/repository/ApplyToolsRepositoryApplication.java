@@ -1,5 +1,6 @@
 package repository;
 
+import common.StringBuilderFromList;
 import repository.applyTools.MusicModelRow;
 import repository.applyTools.TableDataService;
 
@@ -11,11 +12,21 @@ import java.util.stream.Collectors;
 
 public class ApplyToolsRepositoryApplication {
 
-    private TableDataService tableDataService;
+    private final TableDataService tableDataService;
 
+    private final StringBuilderFromList stringBuilderFromList;
 
     public ApplyToolsRepositoryApplication() {
         tableDataService = new TableDataService();
+        stringBuilderFromList = new StringBuilderFromList();
+    }
+
+    private List<MusicModelRow> getSortedListByArtistAscending() {
+        return Arrays.stream(tableDataService.getTableRows()).sorted(Comparator.comparing(MusicModelRow::getArtist)).collect(Collectors.toList());
+    }
+
+    private List<MusicModelRow> getSortedListByArtistDescending() {
+        return getSortedListByArtistAscending().stream().sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getArtist))).collect(Collectors.toList());
     }
 
     private List<MusicModelRow> getSortedListByCategoryAscending() {
@@ -34,49 +45,28 @@ public class ApplyToolsRepositoryApplication {
         return getSortedListByNameAscending().stream().sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getName))).collect(Collectors.toList());
     }
 
-    private List<MusicModelRow> getSortedListByArtistAscending() {
-        return Arrays.stream(tableDataService.getTableRows()).sorted(Comparator.comparing(MusicModelRow::getArtist)).collect(Collectors.toList());
-    }
-
-    private List<MusicModelRow> getSortedListByArtistDescending() {
-        return getSortedListByArtistAscending().stream().sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getArtist))).collect(Collectors.toList());
-    }
-
-    private String stringTransformerTableRows(List<MusicModelRow> tableRows) {
-        String tableRowsString = "";
-        for (int i = 0; i < tableRows.size(); i++) {
-            if (i < 9) {
-                tableRowsString += tableRows.get(i).toString() + '\n';
-            }
-            if (i == 9) {
-                tableRowsString += tableRows.get(i).toString().trim();
-            }
-        }
-        return tableRowsString;
-    }
-
-    public String getSortedListByCategoryAscendingString() {
-        return stringTransformerTableRows(getSortedListByCategoryAscending());
-    }
-
-    public String getSortedListByCategoryDescendingString() {
-        return stringTransformerTableRows(getSortedListByCategoryDescending());
-    }
-
-    public String getSortedByNameAscendingTabelRowsString() {
-        return stringTransformerTableRows(getSortedListByNameAscending());
-    }
-
-    public String getSortedListByNameDescendingTableRowsString() {
-        return stringTransformerTableRows(getSortedListByNameDescending());
-    }
-
     public String getSortedByArtistAscendingString() {
-        return stringTransformerTableRows(getSortedListByArtistAscending());
+        return stringBuilderFromList.stringTransformerTableRows(getSortedListByArtistAscending());
     }
 
     public String getSortedByArtistDescendingString() {
-        return stringTransformerTableRows(getSortedListByArtistDescending());
+        return stringBuilderFromList.stringTransformerTableRows(getSortedListByArtistDescending());
+    }
+
+    public String getSortedListByCategoryAscendingString() {
+        return stringBuilderFromList.stringTransformerTableRows(getSortedListByCategoryAscending());
+    }
+
+    public String getSortedListByCategoryDescendingString() {
+        return stringBuilderFromList.stringTransformerTableRows(getSortedListByCategoryDescending());
+    }
+
+    public String getSortedByNameAscendingTabelRowsString() {
+        return stringBuilderFromList.stringTransformerTableRows(getSortedListByNameAscending());
+    }
+
+    public String getSortedListByNameDescendingTableRowsString() {
+        return stringBuilderFromList.stringTransformerTableRows(getSortedListByNameDescending());
     }
 
     @Override

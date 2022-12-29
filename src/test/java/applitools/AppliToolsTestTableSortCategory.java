@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AppliToolsTestTableSortCategory extends ChromeSetup {
+
     @Test
     public void tableSortCategoryAscendingCheck() {
         AppliToolsObject appliToolsObject = new AppliToolsObject(driver);
@@ -15,7 +16,6 @@ public class AppliToolsTestTableSortCategory extends ChromeSetup {
         Assert.assertEquals(appliToolsObject.getTableRowsText(), applyToolsRepositoryApplication.getSortedListByCategoryAscendingString());
     }
 
-
     @Test
     public void tableSortCategoryDescendingCheck() {
         AppliToolsObject appliToolsObject = new AppliToolsObject(driver);
@@ -23,6 +23,5 @@ public class AppliToolsTestTableSortCategory extends ChromeSetup {
         appliToolsObject.clickConsent();
         appliToolsObject.sortDescendingCategoryElements();
         Assert.assertEquals(appliToolsObject.getTableRowsText(), applyToolsRepositoryApplication.getSortedListByCategoryDescendingString());
-
     }
 }
