@@ -14,6 +14,7 @@
 # Maven
 log/
 target/
+test-output/
 /.mvn/
 /mvnw.cmd
 /mvnw
