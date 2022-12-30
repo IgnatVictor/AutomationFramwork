@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><suite name="All Test Suite">
     <listeners>
-        <listener class-name="common.TestNGReport"/>
+
     </listeners>
     <parameter name="date" value="Tue, 27 Dec 2022 11:13:40 GMT"/>
 
@@ -8,9 +8,9 @@
 
         <classes>
 
-            <class name="phpTravels.TravelPhpSubHeaderCheckTest"/>
-            <class name="phpTravels.TravelPhpHeaderCheckTest"/>
-            <class name="phpTravels.TravelPhpFillInputTest"/>
+            <class name="applitools.AppliToolsTestTableSortArtist"/>
+            <class name="applitools.AppliToolsTestTableSortCategory"/>
+            <class name="applitools.AppliToolsTestTableSortName"/>
         </classes>
     </test>
 

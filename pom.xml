@@ -8,16 +8,11 @@
     <artifactId>AutomationFramwork</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>demo</name>
-
     <properties>
-        <timestamp>${maven.build.timestamp}</timestamp>
-        <maven.build.timestamp.format>yyyy-MM-dd_HH-mm-ss</maven.build.timestamp.format>
-        <sureFireDir>${project.basedir}/target/${timestamp}</sureFireDir>
-        <maven.compiler.target>15</maven.compiler.target>
+    <maven.compiler.target>15</maven.compiler.target>
         <maven.compiler.source>15</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -40,13 +35,9 @@
         <configuration>
             <suiteXmlFiles>
                 <suiteXmlFile>src/test/java/resources/testng.xml</suiteXmlFile>
-                <suiteXmlFile>src/test/java/resources/testng.xml</suiteXmlFile>
             </suiteXmlFiles>
-            <includes>*.*</includes>
-            <reportsDirectory>${project.build.directory}_${timestamp}</reportsDirectory>
         </configuration>
     </plugin>
         </plugins>
     </build>
-
 </project>
