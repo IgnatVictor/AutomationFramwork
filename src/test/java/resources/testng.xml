@@ -8,9 +8,9 @@
 
         <classes>
 
-            <class name="applitools.AppliToolsTestTableSortArtist"/>
-<!--            <class name="applitools.AppliToolsTestTableSortCategory"/>-->
-<!--            <class name="applitools.AppliToolsTestTableSortName"/>-->
+            <class name="applitools.TestTableSortArtistAppliTools"/>
+<!--            <class name="applitools.TestTableSortCategoryAppliTools"/>-->
+<!--            <class name="applitools.TestTableSortNameAppliTools"/>-->
         </classes>
     </test>
 

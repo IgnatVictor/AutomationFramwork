@@ -11,7 +11,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AppliToolsTestTableSortCategory extends ChromeSetup {
+
+public class TestTableSortArtistAppliTools extends ChromeSetup {
 
     @Test
     public void sortTableByArtistAscending() {
@@ -19,10 +20,11 @@ public class AppliToolsTestTableSortCategory extends ChromeSetup {
         AppliToolsObject appliToolsObject = new AppliToolsObject(driver);
         List<MusicModelRow> tableRowData = applyToolsRepositoryApplication.getTableRows()
                 .stream()
-                .sorted(Comparator.comparing(MusicModelRow::getCategory)).collect(Collectors.toList());
+                .sorted(Comparator.comparing(MusicModelRow::getArtist)).collect(Collectors.toList());
         List<String> tableRowDataString = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
         appliToolsObject.clickConsent();
-        executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
+        executor.executeScript("arguments[0].click();", appliToolsObject.getArtistElement());
+
         for (int i = 0; i < tableRowData.size(); i++) {
             Assert.assertEquals(appliToolsObject.getTableRowsToStrings().get(i), tableRowDataString.get(i));
         }
@@ -33,14 +35,16 @@ public class AppliToolsTestTableSortCategory extends ChromeSetup {
         AppliToolsObject appliToolsObject = new AppliToolsObject(driver);
         List<MusicModelRow> tableRowData = applyToolsRepositoryApplication.getTableRows()
                 .stream()
-                .sorted(Comparator.comparing(MusicModelRow::getCategory)).collect(Collectors.toList())
+                .sorted(Comparator.comparing(MusicModelRow::getArtist)).collect(Collectors.toList())
                 .stream()
-                .sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getCategory))).collect(Collectors.toList());
+                .sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getArtist))).collect(Collectors.toList());
         ;
         List<String> tableRowDataString = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
+
+
         appliToolsObject.clickConsent();
-        executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
-        executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
+        executor.executeScript("arguments[0].click();", appliToolsObject.getArtistElement());
+        executor.executeScript("arguments[0].click();", appliToolsObject.getArtistElement());
 
         for (int i = 0; i < tableRowData.size(); i++) {
             Assert.assertEquals(appliToolsObject.getTableRowsToStrings().get(i), tableRowDataString.get(i));
