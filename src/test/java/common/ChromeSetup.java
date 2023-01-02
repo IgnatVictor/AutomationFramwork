@@ -1,26 +1,14 @@
 package common;
 
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.ITestContext;
-import org.testng.annotations.*;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import repository.*;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.xpath.XPathExpressionException;
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.Date;
 
 public abstract class ChromeSetup {
 
@@ -34,10 +22,8 @@ public abstract class ChromeSetup {
     protected ApplyToolsRepositoryApplication applyToolsRepositoryApplication;
 
     protected Actions actions;
-
+    protected JavascriptExecutor executor;
     protected StringBuilderFromList stringBuilderFromList;
-
-    private String time;
 
     private String getUrlFromList(int urlIndex) {
 
@@ -50,9 +36,7 @@ public abstract class ChromeSetup {
         return urlList[urlIndex];
     }
 
-    private String appUrl = getUrlFromList(4);
-
-
+    private final String appUrl = getUrlFromList(4);
 
     @BeforeSuite()
     public void startTime() {}
@@ -68,6 +52,7 @@ public abstract class ChromeSetup {
         phpTravelUserRepositoryApplication = new PhpTravelUserRepositoryApplication();
 
         driver = new ChromeDriver();
+        executor = (JavascriptExecutor) driver;
         actions = new Actions(driver);
         driver.get(appUrl);
         driver.manage().window().maximize();
@@ -78,5 +63,4 @@ public abstract class ChromeSetup {
     public void tearDown() {
         driver.quit();
     }
-
 }

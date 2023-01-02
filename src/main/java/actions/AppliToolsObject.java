@@ -1,17 +1,15 @@
 package actions;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AppliToolsObject {
 
     private final WebDriver driver;
-    private final JavascriptExecutor executor;
-
     private WebElement artist;
     private WebElement category;
     private WebElement consent;
@@ -20,10 +18,10 @@ public class AppliToolsObject {
 
     public AppliToolsObject(WebDriver webDriver) {
         this.driver = webDriver;
-        executor = (JavascriptExecutor) driver;
+
     }
 
-    private List<WebElement> getTableRowsElements() {
+    private List<WebElement> getTableRows() {
         tableRows = driver.findElements(By.cssSelector("tbody[class='row-hover']"));
         return tableRows;
     }
@@ -33,17 +31,17 @@ public class AppliToolsObject {
         return consent;
     }
 
-    private WebElement getArtistElement() {
+    public WebElement getArtistElement() {
         artist = driver.findElement(By.cssSelector("th[class*='column-3']"));
         return artist;
     }
 
-    private WebElement getCategoryElement() {
+    public WebElement getCategoryElement() {
         category = driver.findElement(By.cssSelector("th[class*='column-4']"));
         return category;
     }
 
-    private WebElement getNameElement() {
+    public WebElement getNameElement() {
         name = driver.findElement(By.cssSelector("th[class*='column-2']"));
         return name;
     }
@@ -52,34 +50,14 @@ public class AppliToolsObject {
         getConsentElement().click();
     }
 
-    public String getTableRowsText() {
-        return getTableRowsElements().get(0).getText();
+    public List<String> getTableRowsToStrings() {
+        List<String> tableRowsString = new ArrayList<>();
+        List<WebElement> list = getTableRows();
+        for (int i = 0; i < 10; i++) {
+            tableRowsString.add(list.get(0).getText().split("\n")[i]);
+        }
+        return tableRowsString;
     }
 
-    public void sortAscendingArtistElements() {
-        executor.executeScript("arguments[0].click();", getArtistElement());
-    }
 
-    public void sortDescendingArtistElements() {
-        sortAscendingArtistElements();
-        executor.executeScript("arguments[0].click();", getArtistElement());
-    }
-
-    public void sortAscendingCategoryElements() {
-        executor.executeScript("arguments[0].click();", getCategoryElement());
-    }
-
-    public void sortDescendingCategoryElements() {
-        sortAscendingCategoryElements();
-        executor.executeScript("arguments[0].click();", getCategoryElement());
-    }
-
-    public void sortAscendingNameElements() {
-        executor.executeScript("arguments[0].click();", getNameElement());
-    }
-
-    public void sortDescendingNameElements() {
-        sortAscendingNameElements();
-        executor.executeScript("arguments[0].click();", getNameElement());
-    }
 }
