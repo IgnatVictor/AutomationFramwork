@@ -32,7 +32,10 @@ public abstract class ChromeSetup {
     protected UserLoginRepository userLoginRepository;
     protected PhpTravelUserRepositoryApplication phpTravelUserRepositoryApplication;
     protected ApplyToolsRepositoryApplication applyToolsRepositoryApplication;
+
     protected Actions actions;
+
+    protected StringBuilderFromList stringBuilderFromList;
 
     private String time;
 
@@ -58,6 +61,7 @@ public abstract class ChromeSetup {
     public void setUp() {
 
         applyToolsRepositoryApplication= new ApplyToolsRepositoryApplication();
+        stringBuilderFromList= new StringBuilderFromList();
         repositoryFormApplication = new RepositoryFormApplication();
         userApplication = new RepositoryApplication();
         userLoginRepository = new UserLoginRepository();

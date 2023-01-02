@@ -1,6 +1,7 @@
 package repository.applyTools;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class TableDataService {
 
@@ -20,11 +21,11 @@ public class TableDataService {
         tableRows[8] = new MusicModelRow(9,"Best of Blue Note","Various Artists","Jazz");
     }
 
-    public MusicModelRow[] getTableRows() {
+    public List<MusicModelRow> getTableRows() {
         if(tableRows== null) {
          generateTableRows();
         }
-        return tableRows;
+        return List.of(tableRows);
     }
 
     @Override
