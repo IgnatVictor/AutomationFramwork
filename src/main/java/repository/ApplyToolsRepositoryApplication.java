@@ -16,28 +16,8 @@ public class ApplyToolsRepositoryApplication {
         tableDataService = new TableDataService();
     }
 
-    public List<MusicModelRow> sortListByArtistAscending() {
-        return tableDataService.getTableRows().stream().sorted(Comparator.comparing(MusicModelRow::getArtist)).collect(Collectors.toList());
-    }
-
-    public List<MusicModelRow> sortListByArtistDescending() {
-        return sortListByArtistAscending().stream().sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getArtist))).collect(Collectors.toList());
-    }
-
-    public List<MusicModelRow> sortListByCategoryAscending() {
-        return tableDataService.getTableRows().stream().sorted(Comparator.comparing(MusicModelRow::getCategory)).collect(Collectors.toList());
-    }
-
-    public List<MusicModelRow> sortListByCategoryDescending() {
-        return sortListByCategoryAscending().stream().sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getCategory))).collect(Collectors.toList());
-    }
-
-    public List<MusicModelRow> sortListByNameAscending() {
-        return tableDataService.getTableRows().stream().sorted(Comparator.comparing(MusicModelRow::getName)).collect(Collectors.toList());
-    }
-
-    public List<MusicModelRow> sortListByNameDescending() {
-        return sortListByNameAscending().stream().sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getName))).collect(Collectors.toList());
+    public List<MusicModelRow> getTableRows() {
+        return tableDataService.getTableRows();
     }
 
     @Override
