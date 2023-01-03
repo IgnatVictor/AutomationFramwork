@@ -21,11 +21,12 @@ public class TestTableSortNameAppliTools extends ChromeSetup {
                 .stream()
                 .sorted(Comparator.comparing(MusicModelRow::getName)).collect(Collectors.toList());
 
-        List<String> tableRowDataString = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
-        appliToolsObject.clickConsent();
+        List<String> tableRowDataStringActual = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
+
         executor.executeScript("arguments[0].click();", appliToolsObject.getNameElement());
+        List<String> tableRowDataExpectedExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
         for (int i = 0; i < tableRowData.size(); i++) {
-            Assert.assertEquals(appliToolsObject.getTableRowsToStrings().get(i), tableRowDataString.get(i));
+            Assert.assertEquals(tableRowDataExpectedExpected.get(i), tableRowDataStringActual.get(i));
         }
     }
 
@@ -38,13 +39,14 @@ public class TestTableSortNameAppliTools extends ChromeSetup {
                 .stream()
                 .sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getName))).collect(Collectors.toList());
         ;
-        List<String> tableRowDataString = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
-        appliToolsObject.clickConsent();
+        List<String> tableRowDataStringActual = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
+
         executor.executeScript("arguments[0].click();", appliToolsObject.getNameElement());
         executor.executeScript("arguments[0].click();", appliToolsObject.getNameElement());
+        List<String> tableRowDataExpectedExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
 
         for (int i = 0; i < tableRowData.size(); i++) {
-            Assert.assertEquals(appliToolsObject.getTableRowsToStrings().get(i), tableRowDataString.get(i));
+            Assert.assertEquals(tableRowDataExpectedExpected.get(i), tableRowDataStringActual.get(i));
         }
     }
 }

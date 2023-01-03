@@ -17,14 +17,16 @@ public class TestTableSortCategoryAppliTools extends ChromeSetup {
     public void sortTableByArtistAscending() {
 
         AppliToolsObject appliToolsObject = new AppliToolsObject(driver);
+
         List<MusicModelRow> tableRowData = applyToolsRepositoryApplication.getTableRows()
                 .stream()
                 .sorted(Comparator.comparing(MusicModelRow::getCategory)).collect(Collectors.toList());
-        List<String> tableRowDataString = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
-        appliToolsObject.clickConsent();
+        List<String> tableRowDataStringActual = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
+
         executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
+        List<String> tableRowDataExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
         for (int i = 0; i < tableRowData.size(); i++) {
-            Assert.assertEquals(appliToolsObject.getTableRowsToStrings().get(i), tableRowDataString.get(i));
+            Assert.assertEquals(tableRowDataExpected.get(i), tableRowDataStringActual.get(i));
         }
     }
 
@@ -36,14 +38,13 @@ public class TestTableSortCategoryAppliTools extends ChromeSetup {
                 .sorted(Comparator.comparing(MusicModelRow::getCategory)).collect(Collectors.toList())
                 .stream()
                 .sorted(Collections.reverseOrder(Comparator.comparing(MusicModelRow::getCategory))).collect(Collectors.toList());
-        ;
-        List<String> tableRowDataString = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
-        appliToolsObject.clickConsent();
-        executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
-        executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
+        List<String> tableRowDataStringActual = stringBuilderFromList.transformTableOfRowsIntoListOfStrings(tableRowData);
 
+        executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
+        executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
+        List<String> tableRowDataExpectedExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
         for (int i = 0; i < tableRowData.size(); i++) {
-            Assert.assertEquals(appliToolsObject.getTableRowsToStrings().get(i), tableRowDataString.get(i));
+            Assert.assertEquals(tableRowDataExpectedExpected.get(i), tableRowDataStringActual.get(i));
         }
     }
 }

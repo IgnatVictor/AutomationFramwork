@@ -18,17 +18,11 @@ public class AppliToolsObject {
 
     public AppliToolsObject(WebDriver webDriver) {
         this.driver = webDriver;
-
     }
 
-    private List<WebElement> getTableRows() {
+    public List<WebElement> getTableRows() {
         tableRows = driver.findElements(By.cssSelector("tbody[class='row-hover']"));
         return tableRows;
-    }
-
-    private WebElement getConsentElement() {
-        consent = driver.findElement(By.cssSelector("button[id='onetrust-accept-btn-handler']"));
-        return consent;
     }
 
     public WebElement getArtistElement() {
@@ -45,19 +39,4 @@ public class AppliToolsObject {
         name = driver.findElement(By.cssSelector("th[class*='column-2']"));
         return name;
     }
-
-    public void clickConsent() {
-        getConsentElement().click();
-    }
-
-    public List<String> getTableRowsToStrings() {
-        List<String> tableRowsString = new ArrayList<>();
-        List<WebElement> list = getTableRows();
-        for (int i = 0; i < 10; i++) {
-            tableRowsString.add(list.get(0).getText().split("\n")[i]);
-        }
-        return tableRowsString;
-    }
-
-
 }

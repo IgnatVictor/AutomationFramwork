@@ -1,5 +1,6 @@
 package common;
 
+import org.openqa.selenium.WebElement;
 import repository.applyTools.MusicModelRow;
 
 import java.util.ArrayList;
@@ -13,5 +14,13 @@ public class StringBuilderFromList {
             stringListOfTableRows.add(tableRows.get(i).toString());
         }
         return  stringListOfTableRows;
+    }
+
+    public List<String> getTableRowsToStrings(List<WebElement> webElements) {
+        List<String> tableRowsString = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            tableRowsString.add(webElements.get(0).getText().split("\n")[i]);
+        }
+        return tableRowsString;
     }
 }
