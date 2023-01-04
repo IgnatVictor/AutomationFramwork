@@ -17,8 +17,8 @@ public class TableDataService {
         tableRows[2] = new MusicModelRow(3,"Sweet Baby James","James Taylor","Folk Rock");
         tableRows[5] = new MusicModelRow(6,"Songs in the Key of Life","Stevie Wonder","Soul");
         tableRows[0] = new MusicModelRow(1,"Led Zeppelin IV","Led Zeppelin","Rock");
-        tableRows[1] = new MusicModelRow(2,"Kind of Blue","Miles Davis","Jazz");
-        tableRows[8] = new MusicModelRow(9,"Best of Blue Note","Various Artists","Jazz");
+        tableRows[1] = new MusicModelRow(2,"Kinds of Blue","Miles Davis","Jazz");
+        tableRows[8] = new MusicModelRow(9,"Bests of Blue Note","Various Artists","Jazz");
     }
 
     public List<MusicModelRow> getTableRows() {

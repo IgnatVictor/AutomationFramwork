@@ -4,6 +4,7 @@ import actions.AppliToolsObject;
 import common.ChromeSetup;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import repository.applyTools.MusicModelRow;
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,12 +27,12 @@ public class TestTableSortArtistAppliTools extends ChromeSetup {
         executor.executeScript("arguments[0].click();", appliToolsObject.getArtistElement());
         List<String> tableRowDataExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
 
+        final SoftAssert softAssert= new SoftAssert();
 
         for (int i = 0; i < tableRowData.size(); i++) {
-
-
-            Assert.assertEquals(tableRowDataExpected.get(i), tableRowDataStringActual.get(i));
+            softAssert.assertEquals(tableRowDataExpected.get(i), tableRowDataStringActual.get(i),"not match");
         }
+        softAssert.assertAll();
     }
 
     @Test
@@ -48,8 +49,11 @@ public class TestTableSortArtistAppliTools extends ChromeSetup {
         executor.executeScript("arguments[0].click();", appliToolsObject.getArtistElement());
         executor.executeScript("arguments[0].click();", appliToolsObject.getArtistElement());
         List<String> tableRowDataExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
+
+        final SoftAssert softAssert= new SoftAssert();
         for (int i = 0; i < tableRowData.size(); i++) {
-            Assert.assertEquals(tableRowDataExpected.get(i), tableRowDataStringActual.get(i));
+            softAssert.assertEquals(tableRowDataExpected.get(i), tableRowDataStringActual.get(i));
         }
+        softAssert.assertAll();
     }
 }

@@ -4,6 +4,7 @@ import actions.AppliToolsObject;
 import common.ChromeSetup;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import repository.applyTools.MusicModelRow;
 
 import java.util.Collections;
@@ -25,9 +26,13 @@ public class TestTableSortCategoryAppliTools extends ChromeSetup {
 
         executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
         List<String> tableRowDataExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
+
+        final SoftAssert softAssert= new SoftAssert();
+
         for (int i = 0; i < tableRowData.size(); i++) {
-            Assert.assertEquals(tableRowDataExpected.get(i), tableRowDataStringActual.get(i));
+            softAssert.assertEquals(tableRowDataExpected.get(i), tableRowDataStringActual.get(i),"not match");
         }
+        softAssert.assertAll();
     }
 
     @Test
@@ -42,9 +47,13 @@ public class TestTableSortCategoryAppliTools extends ChromeSetup {
 
         executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
         executor.executeScript("arguments[0].click();", appliToolsObject.getCategoryElement());
-        List<String> tableRowDataExpectedExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
+        List<String> tableRowDataExpected= stringBuilderFromList.getTableRowsToStrings(appliToolsObject.getTableRows());
+
+        final SoftAssert softAssert= new SoftAssert();
+
         for (int i = 0; i < tableRowData.size(); i++) {
-            Assert.assertEquals(tableRowDataExpectedExpected.get(i), tableRowDataStringActual.get(i));
+            softAssert.assertEquals(tableRowDataExpected.get(i), tableRowDataStringActual.get(i),"not match");
         }
+        softAssert.assertAll();
     }
 }
